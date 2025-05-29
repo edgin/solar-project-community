@@ -1,0 +1,23 @@
+{
+  "files": [],
+  "references": [
+    { "path": "./tsconfig.app.json" },
+    { "path": "./tsconfig.node.json" }
+  ],
+  "compilerOptions": {
+    "jsx": "react-jsx",             // ✅ enables JSX support (React 17+)
+    "module": "ESNext",
+    "target": "ESNext",
+    "moduleResolution": "node",
+    "esModuleInterop": true,
+    "allowSyntheticDefaultImports": true,
+    "strict": true,
+    "types": ["jest"],              // ✅ include jest globals
+    "baseUrl": ".",                 // optional
+    "paths": {
+      "@/*": ["src/*"]              // optional alias
+    }
+  },
+  "include": ["src", "src/setupTests.ts"]
+
+}
