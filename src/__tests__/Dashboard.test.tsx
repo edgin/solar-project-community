@@ -1,5 +1,5 @@
 import { render, screen } from '@testing-library/react';
-import Dashboard from '../components/Dashboard'; // adjust path as needed
+import Dashboard from '../pages/Dashboard'; // adjust path as needed
 import * as api from '../services/api';
 import { act } from 'react';
 

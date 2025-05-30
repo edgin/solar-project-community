@@ -34,68 +34,43 @@ export default function Dashboard() {
 
   return (
     <div className="dashboard container-fluid">
-      <FilterPanel
-        state={stateFilter}
-        setState={setStateFilter}
-      />
-      <div className="d-flex flex-wrap justify-content-center gap-4 mb-4">
+      <FilterPanel state={stateFilter} setState={setStateFilter} />
+      
+      <div className="dashboard__grid">
         {loading ? (
-          <div
-            className="d-flex justify-content-center align-items-center"
-            style={{ height: '100px' }}>
-            <div
-              className="spinner-border text-primary"
-              role="status">
+          <div className="dashboard__loader">
+            <div className="spinner-border text-primary" role="status">
               <span className="visually-hidden">Loading...</span>
             </div>
           </div>
         ) : (
           currentProjects.map((project) => (
-            <ProjectCard
-              key={project.id}
-              project={project}
-            />
+            <ProjectCard key={project.id} project={project} />
           ))
         )}
       </div>
 
-      <div
-        className="mt-4 pagination__container"
-        aria-label="Project pagination">
-        <p>
-          {startIndex + 1}–{Math.min(startIndex + ITEMS_PER_PAGE, projects.length)} of {projects.length}{' '}
+      <div className="dashboard__pagination-container" aria-label="Project pagination">
+        <p className="dashboard__pagination-summary">
+          {startIndex + 1}–{Math.min(startIndex + ITEMS_PER_PAGE, projects.length)} of {projects.length}
         </p>
-        <nav className="pagination">
-          <ul className="pagination justify-content-center">
+        <nav className="dashboard__pagination">
+          <ul className="dashboard__pagination-list pagination justify-content-center">
             <li className={`page-item${currentPage === 1 ? ' disabled' : ''}`}>
-              <button
-                className="page-link"
-                onClick={() => setCurrentPage((p) => Math.max(p - 1, 1))}>
-                <img
-                  src="/caret-left-fill.svg"
-                  alt="previous"
-                />
+              <button className="page-link" onClick={() => setCurrentPage((p) => Math.max(p - 1, 1))}>
+                <img src="/caret-left-fill.svg" alt="previous" />
               </button>
             </li>
             {visiblePages.map((page) => (
-              <li
-                key={page}
-                className={`page-item${currentPage === page ? ' active' : ''}`}>
-                <button
-                  className="page-link"
-                  onClick={() => setCurrentPage(page)}>
+              <li key={page} className={`page-item${currentPage === page ? ' active' : ''}`}>
+                <button className="page-link" onClick={() => setCurrentPage(page)}>
                   {page}
                 </button>
               </li>
             ))}
             <li className={`page-item${currentPage === totalPages ? ' disabled' : ''}`}>
-              <button
-                className="page-link"
-                onClick={() => setCurrentPage((p) => Math.min(p + 1, totalPages))}>
-                <img
-                  src="/caret-right-fill.svg"
-                  alt="previous"
-                />
+              <button className="page-link" onClick={() => setCurrentPage((p) => Math.min(p + 1, totalPages))}>
+                <img src="/caret-right-fill.svg" alt="next" />
               </button>
             </li>
           </ul>
