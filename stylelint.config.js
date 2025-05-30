@@ -1,6 +1,6 @@
 module.exports = {
-    extends: ['eslint-config-energysage/stylelint'],
+    extends: ['stylelint-config-standard'],
     rules: {
-        // Disable/Enable any custom rules for your project
+      // You can override or add custom rules here
     },
-};
+  };
