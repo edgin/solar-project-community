@@ -1,4 +1,3 @@
-// Layout.tsx
 const Layout = ({ children }: { children: React.ReactNode }) => (
   <div className="d-flex flex-column min-vh-100">
     <header className="text-white py-3 sticky-top">
