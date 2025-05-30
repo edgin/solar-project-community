@@ -1,16 +1,5 @@
 @import 'bootstrap/scss/bootstrap';
 
-
-
-@font-face {
-  font-family: 'plus_jakarta_sansregular';
-  src:
-    url('/fonts/plusjakartasans-variablefont_wght-webfont.woff2') format('woff2'),
-    url('/fonts/plusjakartasans-variablefont_wght-webfont.woff') format('woff');
-  font-weight: normal;
-  font-style: normal;
-}
-
 :root {
   --color-primary: #007aab;
   --color-secondary: #85b2ff;
