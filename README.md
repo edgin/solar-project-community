@@ -1,54 +1,113 @@
-# React + TypeScript + Vite
+# Solar Project Dashboard
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+> A lightweight React app that displays solar energy projects with filtering, pagination, and responsive layout. Built using Vite and styled with Bootstrap (or Tailwind CSS).
 
-Currently, two official plugins are available:
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Features
 
-## Expanding the ESLint configuration
+- Fetches live project data from the EnergySage API
+- Filter projects by U.S. state
+- Paginated results with adjustable items per page
+- Modular component-based architecture
+- Responsive design using Bootstrap 5 or Tailwind CSS
+- Unit tests with React Testing Library + Jest
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+---
 
-```js
-export default tseslint.config({
-  extends: [
-    // Remove ...tseslint.configs.recommended and replace with this
-    ...tseslint.configs.recommendedTypeChecked,
-    // Alternatively, use this for stricter rules
-    ...tseslint.configs.strictTypeChecked,
-    // Optionally, add this for stylistic rules
-    ...tseslint.configs.stylisticTypeChecked,
-  ],
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
+## Getting Started
+
+### 1. Clone the repository
+
+```bash
+git clone https://github.com/your-username/solar-dashboard.git
+cd solar-dashboard
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+### 2. Install dependencies
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
-
-export default tseslint.config({
-  plugins: {
-    // Add the react-x and react-dom plugins
-    'react-x': reactX,
-    'react-dom': reactDom,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended typescript rules
-    ...reactX.configs['recommended-typescript'].rules,
-    ...reactDom.configs.recommended.rules,
-  },
-})
+```bash
+npm install
 ```
+
+### 3. Start the development server
+
+```bash
+npm run dev
+```
+
+Open your browser at [http://localhost:5173](http://localhost:5173)
+
+---
+
+## Project Structure
+
+```bash
+src/
+├── components/
+│   ├── ProjectCard.tsx        # Reusable project display card
+│   ├── FilterPanel.tsx        # Dropdown filter UI
+├── pages/
+│   └── Dashboard.tsx          # Main project listing and pagination
+├── services/
+│   └── api.ts                 # API calls to fetch project data
+├── __tests__/
+│   └── Dashboard.test.tsx     # Unit tests
+```
+
+---
+
+## API Reference
+
+- **Endpoint**: `https://api.cdgm.energysage.com/api/v1/projects/search/`
+- **Data fetched includes**:
+  - `name`
+  - `hero_image`
+  - `expected_go_live`
+  - `average_review_score`
+
+---
+
+## Search and Filter
+
+- Dropdown filter to select projects by state
+- Search functionality can be implemented as an enhancement
+
+---
+
+## Testing
+
+To run the test suite:
+
+```bash
+npm run test
+```
+
+- Tests ensure loading spinner and UI behavior function correctly
+- Uses `React Testing Library` and `Jest`
+
+---
+
+## Production Build
+
+```bash
+npm run build
+```
+
+Generates static files for deployment.
+
+---
+
+## Notes
+
+- Missing or broken images are replaced with a fallback placeholder
+- Layout adapts to screen size using Bootstrap's grid and spacing
+- Pagination logic and constants are modularized for reuse
+
+---
+
+## Feedback
+
+For questions or feedback, please contact **Luka** or open an issue in this repo.
+
+---

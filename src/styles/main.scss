@@ -181,3 +181,20 @@ button.page-link {
     }
   }
 }
+
+@media (max-width: 767px) {
+  .card-col {
+    width: calc(50% - 1rem);
+  }
+}
+
+@media (min-width: 768px) {
+  .card-col {
+    width: calc(33.333% - 1rem);
+  }
+}
+@media (max-width: 480px) {
+  .card-col {
+    width: calc(100%);
+  }
+}

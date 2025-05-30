@@ -3,8 +3,7 @@ import type { Project } from '../services/api';
 export default function ProjectCard({ project }: { project: Project }) {
   return (
     <div
-      className="project-card shadow card mb-4"
-      style={{ width: 'calc(33.333% - 1rem)' }}>
+      className="project-card shadow card col-xs-12 col-sm-6 col-md-4 card-col">
       <img
         src={project.hero_image || '/fallback-image.jpg'}
         className="project-card__image card-img-top object-fit-cover"
